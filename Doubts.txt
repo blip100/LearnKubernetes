@@ -1,0 +1,34 @@
+-   When you hit https://synchat.internal your etc/hosts is checked
+    IP is hit from there to ingress controller 
+    It will redirect you based on the rules defined to corresponding service
+    but this doesn't work if minikube - use tunnel 
+
+-   Why rewrite URL design is chosen in ingress annotations? 
+    what was the problem? - CH6 explained someting i dont get it - use GPT and try
+
+-   Why don't I need kubectl proxy anymore?
+    - because ingress controller is running in the cluster and it is exposed to the outside world
+    - ingress controller is a reverse proxy that routes traffic to the appropriate service based on the rules defined in the ingress resource
+
+-   Why do I need pvc in the api deployment?
+    - because the api service needs to store data persistently, and pvc provides a way to do that
+    - pvc is a way to request storage from the cluster, and it is bound to a persistent volume that is created by the cluster administrator
+
+-   What is the API they were talking about int Kubernetes:CH7:L8 ?
+-   Last paragraph of CH8:L4 talks about the design, which I didn't get
+
+--------------------------- IGNORE -----------------------------------------
+pod "synergychat-api-89b7d4f9d-ljnsf" deleted
+pod "synergychat-testcpu-569958465d-b8gvp" deleted
+pod "synergychat-testram-5d79f7fb85-fpw7n" deleted
+pod "synergychat-testram-6bf7c68c85-8g5lh" deleted
+pod "synergychat-web-59677889b9-nvnlw" deleted
+service "api-service" deleted
+service "kubernetes" deleted
+service "web-service" deleted
+deployment.apps "synergychat-api" deleted
+deployment.apps "synergychat-testcpu" deleted
+deployment.apps "synergychat-testram" deleted
+deployment.apps "synergychat-web" deleted
+horizontalpodautoscaler.autoscaling "testcpu-hpa" deleted
+horizontalpodautoscaler.autoscaling "web-hpa" deleted
